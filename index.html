@@ -4,131 +4,183 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سياسة الخصوصية - تطبيق أسئلة</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* --- Reset & Base Styles --- */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font stack */
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9; /* Light grey background */
-            color: #444; /* Darker grey for text */
-            direction: rtl; /* Ensure RTL direction */
+        /* --- Variables & Base --- */
+        :root {
+            --primary-color: #007AFF; /* Apple's Blue */
+            --text-color: #1d1d1f; /* Near black for text */
+            --secondary-text-color: #6e6e73; /* Grey for secondary text */
+            --border-color: #d2d2d7; /* Light grey for borders */
+            --bg-light: #f5f5f7; /* Very light grey background */
+            --bg-white: #ffffff;
+            --font-family-base: 'IBM Plex Sans Arabic', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
 
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            line-height: 1.8; /* Increased line height for readability */
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--text-color);
+            direction: rtl;
+            -webkit-font-smoothing: antialiased; /* Smoother fonts on WebKit */
+            -moz-osx-font-smoothing: grayscale; /* Smoother fonts on Firefox */
+        }
+
+        /* --- Container --- */
         .container {
-            max-width: 850px; /* Slightly wider */
-            margin: 40px auto; /* Add top/bottom margin */
-            padding: 30px 40px; /* More padding */
-            background-color: #ffffff; /* White background for content */
-            border-radius: 8px; /* Rounded corners */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Subtle shadow */
-            border: 1px solid #e0e0e0; /* Light border */
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px 50px; /* Generous padding */
+            background-color: var(--bg-white);
+            border-radius: 12px; /* More pronounced radius */
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06); /* Softer, diffused shadow */
+            border: 1px solid var(--border-color);
         }
 
         /* --- Typography --- */
         h1 {
-            color: #1a73e8; /* Google Blue */
-            border-bottom: 2px solid #e0e0e0; /* Thicker border */
-            padding-bottom: 15px;
-            margin-bottom: 20px;
-            font-size: 2.2em;
+            color: var(--text-color); /* Main text color for H1 */
+            padding-bottom: 20px;
+            margin-bottom: 15px;
+            margin-top: 0; /* Remove default top margin */
+            font-size: 2.4em;
+            font-weight: 600; /* Slightly bolder */
             text-align: center;
+            letter-spacing: -0.5px; /* Subtle letter spacing adjustment */
         }
 
         h2 {
-            color: #1a73e8; /* Google Blue */
-            margin-top: 40px; /* More space before H2 */
-            margin-bottom: 15px;
-            font-size: 1.6em;
-            border-bottom: 1px solid #eee; /* Subtle line under H2 */
-            padding-bottom: 8px;
+            color: var(--primary-color);
+            margin-top: 50px; /* Significant space before H2 */
+            margin-bottom: 20px;
+            font-size: 1.7em;
+            font-weight: 500;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color); /* Use defined border color */
         }
 
         p {
-            margin-bottom: 1.1em;
-            color: #555; /* Slightly lighter text for paragraphs */
+            margin-bottom: 1.2em;
+            color: var(--secondary-text-color); /* Use secondary text color */
+            font-weight: 400;
         }
 
         ul {
-            padding-right: 20px; /* Indent list (RTL) */
-            margin-bottom: 1.1em;
-            list-style-type: square; /* Or 'disc', 'circle' */
+            padding-right: 25px; /* Consistent indentation */
+            margin-bottom: 1.2em;
+            list-style-position: outside;
+             list-style-type: none; /* Remove default bullets */
         }
 
-        li {
-            margin-bottom: 0.6em; /* Space between list items */
+         ul li::before {
+             content: "•"; /* Unicode bullet */
+             color: var(--primary-color); /* Bullet color */
+             display: inline-block;
+             width: 1em;
+             margin-left: -1.2em; /* Adjust position for RTL */
+             margin-right: 0.5em; /* Space after bullet */
+             font-weight: bold;
         }
+
+
+        li {
+            margin-bottom: 0.8em;
+            padding-right: 5px; /* Slight indent for text after bullet */
+             color: var(--secondary-text-color);
+        }
+
+        strong {
+           font-weight: 600;
+           color: var(--text-color); /* Make strong text darker */
+        }
+
 
         /* --- Specific Sections --- */
         .date {
-            color: #777; /* Medium grey */
-            font-style: italic;
-            text-align: center; /* Center the date */
-            margin-bottom: 35px;
-            font-size: 0.9em;
+            color: #999; /* Lighter grey */
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 0.95em;
+            font-weight: 300; /* Lighter weight for date */
         }
 
         .contact {
-            background-color: #f5f7fa; /* Lighter blue-grey background */
-            padding: 25px; /* More padding */
-            border-radius: 6px;
-            margin-top: 45px;
-            border: 1px solid #d6e2f0; /* Light blue border */
+            background-color: transparent; /* Remove background */
+            padding: 30px 0 10px 0; /* Adjust padding */
+            border-radius: 0; /* Remove radius */
+            margin-top: 50px;
+            border: none; /* Remove border */
+            border-top: 2px solid var(--border-color); /* Add top border instead */
         }
 
         .contact h2 {
-            margin-top: 0; /* Remove top margin for H2 inside contact */
-            border-bottom: none; /* Remove border for H2 inside contact */
+            margin-top: 25px; /* Space after border */
+            border-bottom: none;
             padding-bottom: 0;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-size: 1.5em; /* Slightly smaller H2 in contact */
         }
 
         .contact p {
-            margin-bottom: 0.8em;
-            color: #444;
+            margin-bottom: 1em;
+            color: var(--secondary-text-color);
         }
 
         /* --- Links --- */
         a {
-            color: #1a73e8; /* Google Blue */
-            text-decoration: none; /* Remove underline */
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s ease-in-out; /* Smooth color transition */
         }
 
         a:hover {
-            text-decoration: underline; /* Add underline on hover */
-            color: #0d47a1; /* Darker blue on hover */
+            color: #0056b3; /* Darker blue on hover */
+            text-decoration: underline;
         }
 
         /* --- Responsive --- */
-        @media (max-width: 768px) {
-            .container {
-                margin: 20px auto;
-                padding: 20px;
-            }
-            h1 {
-                font-size: 1.8em;
-            }
-            h2 {
-                font-size: 1.4em;
+        @media (max-width: 860px) {
+             .container {
+                margin: 30px 15px; /* Adjust margin for smaller screens */
+                padding: 25px 30px;
             }
         }
-         @media (max-width: 480px) {
+
+        @media (max-width: 600px) {
             .container {
-                margin: 10px auto;
-                padding: 15px;
-                 box-shadow: none; /* Remove shadow on small screens */
-                 border: none;
+                margin: 15px;
+                padding: 20px;
+                box-shadow: none;
+                border: none;
+                border-radius: 0;
+                 background-color: var(--bg-light); /* Match body background on smallest screens */
             }
              body {
-                 background-color: #ffffff; /* White background on small screens */
+                 background-color: var(--bg-light);
              }
             h1 {
-                font-size: 1.6em;
+                font-size: 2em;
             }
             h2 {
-                font-size: 1.3em;
+                font-size: 1.5em;
+                margin-top: 40px;
             }
+             ul {
+                padding-right: 15px;
+             }
+             ul li::before {
+                 margin-left: -0.8em;
+                 margin-right: 0.4em;
+             }
         }
     </style>
 </head>
@@ -147,7 +199,6 @@
             <li><strong>معلومات المستخدم التعليمية:</strong> المرحلة الدراسية (الصف الثاني عشر) والمسار الدراسي (علمي/أدبي) الذي تختاره لتخصيص تجربتك.</li>
             <li><strong>بيانات الاستخدام:</strong> معلومات حول كيفية تفاعلك مع التطبيق، مثل الاختبارات التي تجريها، إجاباتك، تقدمك في المواد، والوقت المستغرق.</li>
             <li><strong>معلومات الجهاز:</strong> قد نجمع معلومات أساسية عن جهازك مثل نوع نظام التشغيل وإصدارة، ونوع الجهاز، ومعرفات الجهاز الفريدة (لأغراض مثل إرسال الإشعارات وتحليل الأعطال)، ومعلومات الشبكة الأساسية.</li>
-            <!-- <li>رمز تعريف الجهاز: قد نستخدم رمز تعريف الجهاز لتحسين تجربتك وتخصيصها.</li> --> <!-- تم دمجها مع معلومات الجهاز -->
         </ul>
 
         <h2>كيفية استخدام المعلومات</h2>
@@ -200,7 +251,7 @@
             <h2>الاتصال بنا</h2>
             <p>إذا كان لديك أي أسئلة أو استفسارات أو طلبات بخصوص سياسة الخصوصية هذه أو ممارساتنا المتعلقة بالبيانات، فلا تتردد في التواصل معنا عبر:</p>
             <p><strong>البريد الإلكتروني:</strong> <a href="mailto:support@aselaapp.com">support@aselaapp.com</a></p>
-            <!-- <p>العنوان: عمان، الأردن</p> --> <!-- يفضل عدم وضع عنوان مادي إلا إذا كان ضرورياً وكنت مستعداً لاستقبال المراسلات -->
+            <!-- <p>العنوان: عمان، الأردن</p> -->
         </div>
     </div>
 </body>
